@@ -17,7 +17,7 @@ def yake_keyword(doc):
     list_keyword_clean = []
     for kw in keywords:
         list_keyword.append(kw[0].lower())
-    return list_keyword[:10]
+    return list_keyword[:15]
 
 def main():
     st.title('Tag Recommendations')
