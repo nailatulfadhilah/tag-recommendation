@@ -36,7 +36,7 @@ def main():
                  'indonesia', 'nasional', 'adalah', 'huruf',
                  'undang-undang nomor', 'untuk']
     if st.button("Give Recommendations"):
-        tag_result = yake_keyword(text)
+        tag_result = yake_keyword(text.lower())
         for i in tag_result:
             if i not in stopwords:
                 final_result.append(i)
