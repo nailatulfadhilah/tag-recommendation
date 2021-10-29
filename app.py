@@ -34,7 +34,7 @@ def main():
                  'undang nomor', 'pemerintah nomor', 'hukum',
                  'tahun', 'bangsa', 'negara', 'republik',
                  'indonesia', 'nasional', 'adalah', 'huruf',
-                 'undang-undang nomor']
+                 'undang-undang nomor', 'untuk']
     if st.button("Give Recommendations"):
         tag_result = yake_keyword(text)
         for i in tag_result:
