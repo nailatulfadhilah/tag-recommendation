@@ -1,0 +1,2 @@
+streamlit==1.1.0
+yake @ git+https://github.com/LIAAD/yake@f35bbc0e2f47e733233a182f69ea3aed4a82f9a5
