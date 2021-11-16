@@ -1,5 +1,7 @@
 import streamlit as st
 import yake
+from tag_keybert import keybert
+import torch
 
 
 def yake_keyword(doc):
@@ -33,7 +35,8 @@ def main():
     text = text.replace('Bingung menentukan keterkaitan pasal dan kewajiban bisnis Anda, serta keberlakuan peraturannya? Ketahui kewajiban dan sanksi hukum perusahaan Anda dalam satu platform integratif dengan Regulatory Compliance System dari Hukumonline, klik di sini untuk mempelajari lebih lanjut', '')
     text = text.replace('Seluruh informasi hukum yang ada di Klinik hukumonline.com disiapkan semata – mata untuk tujuan pendidikan dan bersifat umum (lihat Pernyataan Penyangkalan selengkapnya). Untuk mendapatkan nasihat hukum spesifik terhadap kasus Anda, konsultasikan langsung dengan Konsultan Mitra Justika.', '')
     tag_result = ''
-    final_result = []
+    final_result_yake = []
+    final_result_bert = []
     stopwords = ['pasal', 'nomor', 'ayat', 'undang', 'angka',
                  'undang nomor', 'pemerintah nomor', 'hukum',
                  'tahun', 'bangsa', 'negara', 'republik',
@@ -43,11 +46,13 @@ def main():
         tag_result = yake_keyword(text.lower())
         for i in tag_result:
             if i not in stopwords:
-                # words = i.split()
-                # result_word = [word for word in words if word.lower() not in kata_hubung]
-                # result_keyword = ' '.join(result_word)
-                final_result.append(i)
-    st.success("Tag recommendations: {}".format(final_result))
+                final_result_yake.append(i)
+        tag_result2 = keybert(text.lower())
+        for i in tag_result2:
+            if i not in stopwords:
+                final_result_bert.append(i)
+    st.success("Tag recommendations (yake): {}".format(final_result_yake))
+    st.success("Tag recommendations (keybert): {}".format(final_result_bert))
 
 
 if __name__ == '__main__':
