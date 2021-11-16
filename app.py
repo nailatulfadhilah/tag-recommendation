@@ -1,7 +1,5 @@
 import streamlit as st
 import yake
-from tag_keybert import keybert
-import torch
 
 
 def yake_keyword(doc):
