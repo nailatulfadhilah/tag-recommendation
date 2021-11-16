@@ -22,7 +22,7 @@ def yake_keyword(doc):
     list_keyword = []
     for kw in keywords:
         list_keyword.append(kw[0].lower())
-    return list_keyword[:15]
+    return list_keyword[:20]
 
 
 def main():
@@ -47,12 +47,8 @@ def main():
         for i in tag_result:
             if i not in stopwords:
                 final_result_yake.append(i)
-        tag_result2 = keybert(text.lower())
-        for i in tag_result2:
-            if i not in stopwords:
-                final_result_bert.append(i)
-    st.success("Tag recommendations (yake): {}".format(final_result_yake))
-    st.success("Tag recommendations (keybert): {}".format(final_result_bert))
+
+    st.success("Tag recommendations: {}".format(final_result_yake))
 
 
 if __name__ == '__main__':
