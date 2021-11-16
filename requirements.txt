@@ -1,5 +1,2 @@
 streamlit==1.1.0
 yake @ git+https://github.com/nailatulfadhilah/yake@8da94de9fa9536bfc62b10487ddc8dda8c608be9
-transformers==4.12.3
-keybert==0.5.0
-tensorflow==2.7.0
